@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Fluid Proportional Layout</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  </head>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    .Wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .Header {
+      width: 100%;
+      height: 130px;
+      background-color: #038C5A;
+    }
+
+    .WrapMiddle {
+      width: 100%;
+      font-size: 0;
+      position: relative;
+    }
+    .Left {
+      height: 625px;
+      background-color: #03A66A;
+      display: inline-block;
+      position: absolute;
+      left: -200px;
+      width: 200px;
+      font-size: .9rem;
+      transition: transform .3s;
+    }
+    @media (min-width: 40rem) {
+      .Left {
+        width: 20.8333333%;
+        left: 0;
+        position: relative;
+      }
+    }
+    .Middle {
+      height: 625px;
+      background-color: #bbbf90;
+      transition: transform .3s;
+      font-size: .9rem;
+    }
+    @media (min-width: 40rem) {
+      .Middle {
+        display: inline-block;
+        width: 68.75%;
+      }
+    }
+    .Right {
+      height: 625px;
+      width: 100%;
+      background-color: #03A66A;
+      font-size: .9rem;
+    }
+
+    @media (min-width: 40rem) {
+      .Right {
+        width: 10.4166667%;
+        display: inline-block;
+      }
+    }
+    .Footer {
+      height: 120px;
+      width: 100%;
+      background-color: #025059;
+    }
+    .OffCanvas-Active .Left,
+    .OffCanvas-Active .Middle {
+      transform: translate3d(200px, 0, 0);
+      transition: transform .3s;
+    }
+  </style>
+  <script>
+    'use strict';
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const theBody = document.querySelector("body");
+      // When the header is clicked we fire the function to toggle the class
+      document.querySelector(".Header").addEventListener("click", (e) => {
+        theBody.classList.toggle("OffCanvas-Active");
+      });
+    });
+    // This debounce function (via: https://remysharp.com/2010/07/21/throttling-function-calls) merely stops functioned firing too often on repetitive events (such as resize/scroll)
+    function debounce(fn, delay) {
+      let timer = null;
+      return function () {
+        const context = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          fn.apply(context, args);
+        }, delay);
+      };
+    }
+    // removing the class from the body inside a debounce
+    const debouncedA = debounce(function() {
+      theBody.classList.remove("OffCanvas-Active");
+    }, 250);
+    // When the window is resized, we want to fire the debouncedA function
+    window.onresize = debouncedA;
+  </script>
+  <body>
+  <div class="Wrap">
+    <div class="Header">Header</div>
+    <div class="WrapMiddle">
+      <div class="Left">Left</div>
+      <div class="Middle">Middle</div>
+      <div class="Right">Right</div>
+    </div>
+    <div class="Footer">Footer</div>
+  </div>
+  </body>
+</html>

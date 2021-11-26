@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Named Areas</title>
+  </head>
+  <style>
+    body {
+      margin: 40px;
+    }
+    .sidebar {
+      grid-area: sidebar;
+      transition: 1.0s ease-in-out;
+      opacity: 1;
+      width: 80px;
+      border: 1px solid red;
+    }
+    .sidebar.hide_it {
+      opacity: 0;
+      width: 0;
+    }
+    .content {
+      grid-area: content;
+    }
+    .header {
+      grid-area: header;
+    }
+    .wrapper {
+      display: grid;
+      width: 360px;
+      height: 640px;
+      transition: 1.0s ease-in-out;
+      /*
+      grid-gap: 10px;
+      */
+      /*
+      grid-template-columns: 120px  120px  120px;
+      */
+      grid-template-columns: 120px 120px 120px;
+      grid-template-rows: 12.5% 87.5%;
+
+      grid-template-areas:
+          "....... header  header"
+          "sidebar content content";
+      background-color: #fff;
+      color: #444;
+    }
+    .wrapper.mod_it {
+      width: 240px;
+      grid-template-columns: 0;
+    }
+    .box {
+      background-color: #444;
+      color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      font-size: 150%;
+    }
+    .header {
+      background-color: #999;
+    }
+    p {
+      width: 600px;
+    }
+  </style>
+  <body>
+    <button id="toggle_sidebar">Toggle Sidebar</button>
+    <div id=container class="wrapper">
+      <div class="box header">Header</div>
+      <div id=side_bar class="box sidebar">Sidebar</div>
+      <div class="box content">Content</div>
+    </div>
+  <p>
+    We can create named areas on the grid to put content into.
+    To do this we first assign elements in our markup to a Grid Area, using the grid-area property.
+    <br/><br/>
+    We can then use the grid-template-areas property to describe where on the Grid these elements should sit.
+    <br/><br/>
+    Repeating the name of an area indicates that the area spans that grid track. Using a . or a sequence like ....
+    indicates an empty track. Such as the very first cell on this grid.
+    <br/><br/>
+    Note I am using percentages for row heights of the wrapper height (i.e. 12.5%,87.5%)
+  </p>
+  </body>
+  <script>
+    const container = document.querySelector('#container');
+    const tog_button = document.querySelector('#toggle_sidebar');
+    const side_bar = document.querySelector('#side_bar');
+    tog_button.addEventListener('click',(e) => {
+      side_bar.classList.toggle('hide_it');
+      container.classList.toggle('mod_it');
+    })
+  </script>
+</html>

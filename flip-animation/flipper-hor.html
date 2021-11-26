@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <style>
+    .flip-container {
+      -webkit-perspective: 1000;
+    }
+    .flip-container.flip .flipper {
+      transform: rotateY(180deg);
+    }
+    .flip-container, .front, .back {
+      width: 320px;
+      height: 480px;
+    }
+    .flipper {
+      transition: 2.0s;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+    .front, .back {
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .front {
+      z-index: 2;
+      transform: rotateY(0deg);
+    }
+    .back {
+      transform: rotateY(180deg);
+    }
+  </style>
+  <body>
+    <script>
+      function doit (){
+        var but = document.querySelector('#abutton');
+        but.addEventListener('click',function(e){
+          document.querySelector('#container').classList.toggle('flip');
+        })
+      }
+      window.onload = doit;
+    </script>
+    <button id="abutton">Flip It</button>
+    <div id="container" class="flip-container">
+      <div class="flipper">
+        <div class="front">
+          <h3>Front Content</h3>
+        </div>
+        <div class="back">
+          <h3>Back Content</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

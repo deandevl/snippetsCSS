@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--Developer: Rick Dean -->
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="description" content=""/>
+  <meta name="keywords" content=""/>
+  <meta name="author" content="Rick Dean"/>
+
+  <style>
+    .deals {
+      display: -webkit-flex;
+      flex-direction: row;
+    }
+    .sale-item {
+      display: -webkit-flex;
+      flex-direction: column;
+      justify-content: space-around;
+      border:8px solid;
+      border-radius:25px;
+      border-color: #adff2f;
+      padding: 10px;
+      margin: 5px;
+    }
+    .details {
+      display: -webkit-flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    button {
+      max-width: 100px;
+    }
+  </style>
+
+</head>
+<body>
+  <section class='deals'>
+    <section class='sale-item'>
+      <h1>Computer Starter Kit</h1>
+      <p>This is the best computer money can buy, if you don't have much money.</p>
+      <section class='details'>
+        <ul>
+          <li>Computer</li>
+          <li>Monitor</li>
+          <li>Keyboard</li>
+          <li>Mouse</li>
+        </ul>
+        <img src='img/computer.jpg'
+             alt='You get: a white computer with matching peripherals.'>
+      </section>
+      <button>BUY NOW</button>
+    </section>
+    <section class='sale-item'>
+      <h1>Color Printer</h1>
+      <p>Only capable of printing ASCII art.</p>
+      <section class='details'>
+        <ul>
+          <li>Single or multi paper feed</li>
+          <li>Has 2 year warranty</li>
+          <li>Paper and ink not included</li>
+        </ul>
+        <img src="img/printer.png" alt="You get: a printer capable of printing ASCII art.">
+      </section>
+      <button>BUY NOW</button>
+    </section>
+  </section>
+</body>
+</html>

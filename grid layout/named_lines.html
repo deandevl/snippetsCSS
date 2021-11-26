@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+  <style>
+    body {
+      margin: 40px;
+    }
+    .wrapper {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: [col1-start] 100px  [col2-start] 100px  [col3-start] 100px [col3-end];
+      grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
+      background-color: #fff;
+      color: #444;
+    }
+    .box {
+      background-color: #444;
+      color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      font-size: 150%;
+
+    }
+    .a {
+      grid-column: col1-start / col3-start;
+      grid-row: row1-start ;
+    }
+    .b {
+      grid-column: col3-start ;
+      grid-row: row1-start / row2-end;
+    }
+    .c {
+      grid-column: col1-start;
+      grid-row: row2-start ;
+    }
+    .d {
+      grid-column: col2-start ;
+      grid-row: row2-start ;
+    }
+    p {
+      width: 600px;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <div class="box a">A</div>
+      <div class="box b">B</div>
+      <div class="box c">C</div>
+      <div class="box d">D</div>
+    </div>
+  <p>
+    We can name lines rather than targeting them by number.
+    Name the line inside you can see that I name the very first
+    column line col1-start then comes the 100 pixel first column track.
+    Having named the lines you can use the names, rather than numbers.
+    You always have the line numbers to use - even if you name some or all of your lines.
+  </p>
+  </body>
+</html>

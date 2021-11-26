@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Using Auto-Fit</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  </head>
+  <style>
+    .wrapper {
+      border: 2px solid red;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .wrapper > div {
+      border: 1px solid blue;
+      border-radius: 4px;
+      padding: 5px 10px;
+      background-color: rgba(0,0,255,.1);
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+  </style>
+  <body>
+    <h2>Auto-fit</h2>
+  <div class="wrapper">
+    <div>One</div>
+    <div>Two</div>
+    <div>Three</div>
+    <div>Four</div>
+    <div>Five</div>
+  </div>
+  <p>
+    The auto-fit keyword is like saying, "fit as many columns as you can in this track
+    based on the applied rules."  Columns will reflow based on screen width, so while
+    you may have 5 columns on a wide screen, you may only have 2 on a narrow screen.
+    Minmax() function defines an upper and lower limit for your grid track size.  In this
+    example we're saying "columns in this track can't be smaller than 200px and they can
+    be as large as 1 fraction unit(the rest of the space)."
+  </p>
+  </body>
+</html>

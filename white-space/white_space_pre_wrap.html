@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Demo of css-- white-space: pre-wrap</title>
+  </head>
+  <style>
+    .jstBracket {
+      white-space: pre-wrap;
+    }
+  </style>
+
+  <body>
+    <div id="container" class="jstBracket">
+    </div>
+    <script>
+      {
+        _indent = function(value, depth) {
+          const indent = Array((depth * 2) + 1).join(' ') + value;
+          return indent;
+        };
+
+        const heir = '[\n' + _indent('parent\n',1) + _indent('child\n',2) + ']';
+
+        const container = document.querySelector('#container');
+        container.innerHTML = '<span>' + heir + '</span>';
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  </head>
+  <style>
+    .container {
+      width: 200px;
+      height: 260px;
+      position: relative;
+      perspective: 800px;
+    }
+    #card {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      transform-origin: right center;
+      transition:  transform 2s;
+    }
+    #card figure {
+      margin: 0;
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    #card .front {
+      color: white;
+      background: red;
+    }
+    #card .back {
+      color: white;
+      background: blue;
+      transform: rotateY(180deg);
+    }
+    #card.flipped {
+      transform: translateX(-100%) rotateY(-180deg);
+    }
+  </style>
+  <body>
+    <script>
+      function doit (){
+        var but = document.querySelector('#abutton');
+        but.addEventListener('click',function(e){
+          document.querySelector('#card').classList.toggle('flipped');
+        })
+      }
+      window.onload = doit;
+    </script>
+    <button id="abutton">Flip It</button>
+    <section class="container">
+      <div id="card">
+        <figure class="front">1</figure>
+        <figure class="back">2</figure>
+      </div>
+    </section>
+  </body>
+</html>

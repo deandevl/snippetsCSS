@@ -1,0 +1,58 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Box and Text Shadow</title>
+	<meta name="description" content="An example from the book, 'Responsive Web Design with HTML5 and CSS3' by Ben Frain">
+	<meta name="viewport" content="width=device-width">
+	<meta name="theme-color" content="#ff9900">
+</head>
+<style>
+	.box-shadow_1,.box-shadow_2,
+	.inner-box-shadow {
+		height: 20vmin;
+		width: 20vmin;
+		border: 1px solid #111;
+		margin: 1em;
+		display: inline-flex;
+		font-family: sans-serif;
+    font-size: x-large;
+    font-weight: bolder;
+		align-items: center;
+    padding: 8px;
+	}
+  .box-shadow_1 {
+   /*horizontal offset, vertical offset, blur, spread, color*/
+    box-shadow: 0 0 15px blue;
+  }
+	.box-shadow_2 {
+    box-shadow: 0 3px 5px #444;
+	}
+
+	.inner-box-shadow {
+		box-shadow: inset 0 0 15px violet;
+	}
+	.text {
+		text-shadow: 4px 4px 0 #dad7d7;
+	}
+  @media(max-width: 40rem){
+    .text {
+      text-shadow: none;
+    }
+  }
+</style>
+<body>
+  <div class="box-shadow_1">
+    Outer box-shadow
+  </div>
+	<div class="box-shadow_2">
+		<div class="text">
+			Outer box-shadow with text-shadow
+		</div>
+
+	</div>
+	<div class="inner-box-shadow">
+		Inner box-shadow
+	</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  </head>
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: .30fr 0.60fr 0.10fr;
+      grid-gap: 2px;
+    }
+    .header {
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+      min-height: 40px;
+      background-color: #038c5a;
+    }
+    .left {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      background-color: #03a66a;
+    }
+    .middle {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      min-height: 625px;
+      background-color: #bbbf90;
+    }
+    .right {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+      background-color: #03a66a;
+    }
+    .footer {
+      grid-column: 1 / 4;
+      grid-row: 3 / 4;
+      min-height: 40px;
+      background-color: #025059;
+    }
+    @media only screen and (max-width: 768px) {
+      /*For mobile phones*/
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .header {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+      }
+      .left {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        min-height: 312px;
+      }
+      .middle {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+      }
+      .right {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+        min-height: 312px;
+      }
+      .footer {
+        grid-column: 1 / 2;
+        grid-row: 5 / 6;
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="header">Header</div>
+      <div class="left">Left</div>
+      <div class="middle">Middle</div>
+      <div class="right">Right</div>
+      <div class="footer">Footer</div>
+    </div>
+  </body>
+</html>

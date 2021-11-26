@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Holy Grail of HTML Layouts</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  </head>
+  <style>
+    .hg_header {
+      grid-area: header;
+      background-color: green;
+    }
+    .hg_footer {
+      grid-area: footer;
+      background-color: green;
+    }
+    .hg_main {
+      grid-area: main;
+      background-color: #3c510c;
+    }
+    .hg_left {
+      grid-area: navigation;
+      background-color: #8699a4;
+    }
+    .hg_right {
+      grid-area: ads;
+      background-color: #8699a4;
+    }
+    .hg {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-areas: "header header header"
+                           "navigation main ads"
+                           "footer footer footer";
+      grid-template-columns: 150px 1fr 150px;
+      grid-template-rows: 100px 1fr 50px;
+      min-height: 100vh;
+      margin: 0;
+      padding: 10px;
+      overflow: hidden;
+      color: white;
+      font-weight: bolder;
+      font-size: 20px;
+      font-family: Verdana,sans-serif;
+    }
+    .box {
+      border: 1px solid blue;
+      border-radius: 5px;
+    }
+
+    @media screen and (max-width: 600px){
+      .hg {
+        grid-template-areas:
+            "header"
+            "navigation"
+            "main"
+            "ads"
+            "footer";
+        grid-template-columns: 100%;
+        grid-template-rows: 100px
+                            50px
+                            1fr
+                            50px
+                            30px;
+        overflow: auto;
+      }
+    }
+  </style>
+  <body class="hg">
+    <header class="hg_header box">Title</header>
+    <main class="hg_main box">Content</main>
+    <aside class="hg_left box">Menu</aside>
+    <aside class="hg_right box">Ads</aside>
+    <footer class="hg_footer box">Footer</footer>
+  </body>
+</html>
